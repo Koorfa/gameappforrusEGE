@@ -1,0 +1,133 @@
+@font-face {
+	font-family: "Chinese Rocks Bold Cyrillic";
+	font-style: normal;
+	src: local("Chinese Rocks Bold Cyrillic"),
+	 	 url("fonts/chineserocksboldcyrillic.woff2") format("woff2");
+}
+@font-face {
+	font-family: "Blogger Sans Bold";
+	font-style: bold;
+	src: url("fonts/Blogger Sans-Bold.woff2") format('woff2');
+}
+
+@font-face {
+	font-family: "Kroftsmann";
+	font-style: bold;
+	src: url("fonts/Kroftsmann.woff2") format('woff2');
+}
+
+@font-face {
+	font-family: "Merriweather";
+	font-style: normal;
+	src: url("fonts/Merriweather-Regular.woff2") format('woff2');
+}
+@font-face {
+	font-family: "Merriweather";
+	font-style: bold;
+	src: url("fonts/Merriweather-Bold.woff2") format('woff2');
+}
+
+body {
+	font-family: Merriweather;
+	font-size: x-large;
+	height: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.page-header {
+	padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    min-height: 60px;
+    background-color: #9B111E;
+}
+.page-header__inner {
+    display: block;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.page-header__top {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start
+}
+
+.page-header__logo {
+    /*display: none;*/
+    flex: 1 0 auto;
+    /*height: 60px;*/
+    font-family: "Chinese Rocks Bold Cyrillic";
+    font-size: 60px;
+    color: white;
+    text-decoration: none;
+    align-content: center;
+}
+
+.test {
+	height: 325px;
+    background-color: white;
+    padding: 16px 10px 23px 16px;
+    max-width: 970px;
+    font-size: 16px;
+    position: relative;
+    margin: 7%;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-size: x-large;
+}
+.spacer {
+	flex-grow: 1;
+	padding: 0 15px;
+}
+div {
+	display: block;
+}
+.question {
+	vertical-align: baseline;
+	font-size: 40px;
+	font-family: "Merriweather";
+	padding: 0 15px;
+	max-height: 120px;
+}
+.variants {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.btn {
+	width: calc(35% - 10px);
+	height: 70px;
+    margin: 16px;
+    padding: 16px 5px;
+    text-align: center;
+    position: relative;
+    background-color: #9B111E;
+    color: white;
+    cursor: pointer;
+    border-radius: 15px;
+    font-family: Merriweather;
+    font-size: 28px;
+
+}
+.h {
+	padding: 30px 10px 23px 23px;
+	height: 30px;
+	display: flex;
+	font-style: bold;
+}
+
+.explanation {
+	font-size: 20px;
+	text-align: center;
+}
