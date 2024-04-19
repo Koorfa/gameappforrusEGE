@@ -204,3 +204,28 @@ button:active {
   color: #fff;
 }
 /* yes/no btns */
+
+/* next btn */
+.next {
+  display: flex;
+  width: 380px;
+  gap: 10px;
+  --b: 5px;   /* the border thickness */
+  --h: 1.8em; /* the height */
+}
+.next button {
+  --_c: #88C100;
+  flex: calc(1.25 + var(--_s,0));
+  min-width: 0;
+  font-size: 40px;
+  font-family: Merriweather;
+  font-weight: bold;
+  height: var(--h);
+  cursor: pointer;
+  color: var(--_c);
+  border: var(--b) solid var(--_c);
+  background-color: white;
+  box-sizing: border-box;
+  transition: flex .4s;
+}
+/* next btn */
