@@ -10,18 +10,8 @@ from random import choice
 app = Flask(__name__)
 
 
-@app.route('/')
-def hello_world():
-    return render_template('1.html')  # https://habr.com/ru/articles/804887/
-
-
+# https://habr.com/ru/articles/804887/
 # https://www.digitalocean.com/community/tutorials/processing-incoming-request-data-in-flask-ru
-@app.route('/query-example')
-def query_example():
-    # if key doesn't exist, returns None
-    language = request.args.get('language')
-
-    return '''<h1>The language value is: {}</h1>'''.format(language)
 
 
 @app.route('/4')
@@ -30,10 +20,23 @@ def task4():
     # if key doesn't exist, request.args.get() returns None
     # while request.args[] returns error 400
     n = request.args.get('word')  # id
+    s = request.args.get('s')
+    flag = False
     try:
         con = sqlite3.connect('data.db')
         cur = con.cursor()
-        if mode == 'answer':
+        if s:
+            query = f"""SELECT stress from four WHERE id = {n}"""
+            cur.execute(query)
+            stress = int(cur.fetchall()[0][0])
+            for i in range(len(s)):
+                if s[i].isupper():
+                    if i == stress:
+                        flag = True
+                        break
+            if flag:
+                n = choice(range(1, 224))
+        if mode == 'answer' or s and not flag:
             query = f'''SELECT word, stress, clar from four WHERE id = {n}'''
             cur.execute(query)
             info = cur.fetchall()[0]
@@ -43,7 +46,7 @@ def task4():
                     word = word + info[0][i].upper()
                 else:
                     word = word + info[0][i]
-            a = ''
+            a = f'/4?word={choice(range(1, 224))}'
             return render_template('2.html', word=word, clar=(info[2] if info[2] else ''), a=a)
         query = f'''SELECT word, vowels, clar from four WHERE id = {n}'''
         cur.execute(query)
@@ -56,7 +59,9 @@ def task4():
                 word = word + info[0][i].upper()
             else:
                 word = word + info[0][i]
-        a1 = f'/4?word={choice(range(1, 224))}'
+        if 'ё' in word:
+            word = word.replace('ё', 'е')
+        a1 = f'/4?word={n}&s={word}'
         a2 = f'/4?word={n}&mode=answer'
         return render_template('1.html', word=word, clar=(info[2] if info[2] else ''), a1=a1, a2=a2)
     except sqlite3.Error:
