@@ -35,7 +35,7 @@ def task4():
                         flag = True
                         break
             if flag:
-                n = choice(range(1, 224))
+                n = choice(range(1, 222))
         if mode == 'answer' or s and not flag:
             query = f'''SELECT word, stress, clar from four WHERE id = {n}'''
             cur.execute(query)
@@ -46,11 +46,12 @@ def task4():
                     word = word + info[0][i].upper()
                 else:
                     word = word + info[0][i]
-            a = f'/4?word={choice(range(1, 224))}'
+            a = f'/4?word={choice(range(1, 222))}'
             return render_template('2.html', word=word, clar=(info[2] if info[2] else ''), a=a)
         query = f'''SELECT word, vowels, clar from four WHERE id = {n}'''
         cur.execute(query)
         info = cur.fetchall()[0]
+        con.close()
         vowels = list(map(int, info[1].split(';')))
         stress = choice(vowels)
         word = ''
@@ -65,10 +66,7 @@ def task4():
         a2 = f'/4?word={n}&mode=answer'
         return render_template('1.html', word=word, clar=(info[2] if info[2] else ''), a1=a1, a2=a2)
     except sqlite3.Error:
-        print('error occurred what a coincidence')
-    finally:
-        if con:
-            con.close()
+        print(sqlite3.Error)
 
 
 if __name__ == '__main__':
