@@ -1,3 +1,5 @@
-2 week speedrun /n
-https://koorfa.pythonanywhere.com/4?word=1 /n
+2 week speedrun
+
 studied flask, html+css
+
+https://koorfa.pythonanywhere.com/4?word=1
