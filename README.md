@@ -1,2 +1,3 @@
-2 week speedrun resulted in https://koorfa.pythonanywhere.com/4?word=1
+2 week speedrun /n
+https://koorfa.pythonanywhere.com/4?word=1 /n
 studied flask, html+css
